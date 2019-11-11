@@ -2,16 +2,15 @@
 <html>
 
 <head>
-    
-    <title>Scots Politique</title>
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
 </head>
-    
+ 
+<!-- ImageLogo -->
+<img src="../images/Pug.jpg" alt="Logo" id="PageLogo">    
+
 <header>
-    
-    <!-- ImageLogo -->
-    <img src="" alt="Logo">    
     
     <!-- NavBar -->
     <div id="NavBar">
@@ -26,14 +25,14 @@
         
     </div>
     
-    <!-- ImageBanner -->
-    <img alt="Banner">
-    
 </header>
 
+<!-- ImageBanner -->
+<img src="../images/PlaceholderBanner.jpg" alt="Banner" id="PageBanner">
+
 <body>
-    
-    <div id="WelcomeMessage">
+    <div id="BodyContent">
+    <div id="HomeWelcomeMessage">
         
         <!-- Welcome Message & Summary -->
         <h2>Welcome, Scots Politique</h2>
@@ -44,21 +43,21 @@
         
     </div>
     
-    <div>
+    <div id="HomePostcodeForm">
         
         <!-- Postcode form -->
         <form action="./Constituency.html" method="get" id="FrmPostcode">
-            <input type="Text" id="TxtPostcode" name="Postcode" value="Postcode">
-            <input type="Submit" id="BtnSubmit" value="Find Constituency">
+            <input type="Text" id="TxtPostcode" name="Postcode" value="Postcode"><br>
+            <input type="Submit" id="BtnSubmit" value="Find Constituency"><br>
             <a href="Map.html">Select Region</a>
         </form>
         
     </div>
-    
+    </div>   
 </body>
 
 <footer>
-    
+    <div id="FooterContent">
     <div id="AccessOptions">
         <ul>
         <!-- Accessability Link 1? (colour blindness) -->
@@ -74,13 +73,7 @@
         <li><a href="About.html" onclick="">Reset Text</a></li>
         </ul>
     </div>
-    
-    <div id="FooterLinks">
-        <!-- link About -->
-        <a href="About.html">About</a>
-        <a href="Home.html">Home</a>
     </div>
-    
 </footer>
     
 </html>

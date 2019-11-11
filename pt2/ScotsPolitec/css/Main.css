@@ -1,0 +1,124 @@
+*{
+    display: inline-block;
+    position: relative;
+}
+
+header{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 10%;
+    background-color: #569fff;
+}
+
+footer{
+    padding-bottom: 5px;
+    width: 100%;
+    height: 10%;
+    background-color: #569fff;
+}
+
+body{
+    background-color: #569fff;
+}
+
+#NavBar{
+    background-color: #ffffff;
+    border: #000000 solid 2px;
+    width: 100%;
+}
+
+#NavBar li{
+    border: 1px solid #707070;
+    background-color: #ffffff;
+}
+
+#PageBanner{
+    width: 100%;
+    height: 150px;
+    margin-top: -4.8px;
+    margin-bottom: -4.8px;
+    border: #000000 solid 2px;
+}
+
+#PageLogo{
+    width: 50px;
+    height: 50px;
+    margin-left: 2.9%;
+    border: #000000 solid 2px;
+}
+
+#BodyContent{
+    padding-bottom: 20px;
+    padding-top:20px;
+    height: 80%;
+    background-color: #ffffff;
+    border: #000000 solid 2px;
+}
+
+#FooterContent{
+    background-color: #ffffff;
+    border: #000000 solid 2px;
+    width: 100%;
+}
+
+#HomeWelcomeMessage{
+    float: left;
+    width: 50%;
+}
+
+#HomePostcodeForm{
+    margin-top: 25px;
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a:hover{
+   background-color: #60798d;
+}
+
+ul li{
+    list-style: none;
+    display: inline;
+
+    margin-right: 5px;
+
+    border: 1px solid #707070;
+    background-color: #ffffff;
+}
+
+
+@media screen and (Max-width: 500px) {
+    #HomeWelcomeMessage{
+        width: 100%;
+    }
+    
+    #HomePostcodeForm{
+        margin-top: 25px;
+        width: 100%;
+        text-align: center;
+    }
+  }
+  
+/*
+@media screen and (Min-width: 501px) and (Max-width: 800px) {
+    body {
+      background-color: green;
+    }
+  }
+
+@media screen and (Min-width: 801px) {
+    body {
+      background-color: red;
+    }
+  }
+*/
