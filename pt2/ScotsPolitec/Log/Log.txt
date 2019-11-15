@@ -1,0 +1,1 @@
+11/11/2019 : inital webpage implementation underway, base HTML and Scripts put in place however can be best described as "Ugly" at best a planned revamp of CSS is recommended
