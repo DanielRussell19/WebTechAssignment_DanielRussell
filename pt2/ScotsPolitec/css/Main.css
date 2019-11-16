@@ -3,13 +3,21 @@
     position: relative;
 }
 
+html{
+    background-color: rgb(134, 195, 255);
+}
+
 Header{
     width: 100%;
+
+    background-color: #ffffff;
 }
 
 #NavBar{
     width: 100%;
+
     border: 1px solid #000000;
+
     text-align: center;
 }
 
@@ -21,8 +29,10 @@ Header{
 #NavBar li a{
     padding: 4px;
     margin-right: 8px;
+
     text-decoration: none;
     color: #000000;
+
     font-size: 20px;
     font-family: serif;
     font-weight: bold;
@@ -31,7 +41,8 @@ Header{
 #NavBar li a:hover{
     background-color: #1E90FF;
     color: #ffffff;
-    border-radius: 10%;
+
+    border-radius: 40%;
 }
 
 #NavBar li a:active{
@@ -39,42 +50,68 @@ Header{
     color: #ffffff;
 }
 
+Body{
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
 #BodyContent{
     margin-top: 55px;
     margin-bottom: 55px;
+
     width: 100%;
 }
 
 #BodyWelcomeMessage{
     float: left;
+
     width: 50%;
 }
 
 #BodyPostcodeForm{
     float: right;
-    width: 50%;
+
+    width: 39%;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    margin-top: 6%;
+
+    border: 1px solid #000000;
+
+    text-align: center;
 }
 
 Footer{
     width: 100%;
+
     border-top: 1px solid #000000;
+
+    background-color: rgb(134, 195, 255);
 }
 
 #FooterContent{
     width: 100%;
+
+    box-shadow: 0px 20px 0px 0px rgb(134, 195, 255);
 }
 
 #PageLogo{
     display: block;
+
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #PageBanner{
     display: block;
+
     margin-left: auto;
     margin-right: auto;
+
     width: 100%;
+
     border-bottom: 1px solid #000000;
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
@@ -90,13 +127,23 @@ Footer{
         margin-top: 25px;
         width: 100%;
         text-align: center;
+        margin-right: 0%;
+        margin-top: 0%;
     }
   }
   
 /*Tablet*/
 @media screen and (Min-width: 501px) and (Max-width: 800px) {
-    body {
-      
+    #BodyWelcomeMessage{
+        width: 100%;
+    }
+    
+    #BodyPostcodeForm{
+        margin-top: 25px;
+        width: 100%;
+        text-align: center;
+        margin-right: 0%;
+        margin-top: 0%;
     }
   }
 
