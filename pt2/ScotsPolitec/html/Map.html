@@ -50,7 +50,8 @@
                  mapTypeControl: false,
                  streetViewControl: false,
                  rotateControl: false,
-                 fullscreenControl: false
+                 fullscreenControl: false,
+                 zoomControl:false
                 });
                 
                 var cordDundee = new google.maps.LatLng(56.462031, -2.970778);
@@ -58,6 +59,7 @@
                 
                 markerDundee.addListener('click',function(){
                     document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Dundee";
                 });
                 
                 markerDundee.setMap(map);
@@ -68,7 +70,7 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGHsX3w5L0-ujecwt-4kKaHPS9i6xZr1I&callback=initMap"async defer></script>
 
         <div id="RegionMenu">
-
+        <p id="labelSelected"></p><br>
         <a onclick="">Job Statistics</a><br>
         <a onclick="">Education Statistics</a><br>
         <a onclick="">Health Statistics</a>
@@ -91,7 +93,7 @@
             <a href="About.html" onclick="">ColourBlindness</a>
             
             <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Enlarge Text/ 1x</a>
+            <a href"" onclick="EnlargeText">Enlarge Text/ 1x</a>
             
             <!-- Accessability Link 2? (Enlarge Text) -->
             <a href="About.html" onclick="">Shrink Text/ 1x</a>
@@ -104,7 +106,9 @@
 </body>
     
 <Script>
-    
+    function EnlargeText(){
+        document.getElementById("labelSelected").innerHTML = "Select Region: Dundee";
+    }
 </Script>
     
 </html>
