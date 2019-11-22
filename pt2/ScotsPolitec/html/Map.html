@@ -37,11 +37,34 @@
         <div id="map"></div>
 
             <script>
+                
             var map;
+            var selectRegion;
+            var selectConstituancy;
+                
             function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {center: {lat: 56.6676979, lng: -4.1706596},zoom: 6});
+                map = new google.maps.Map(document.getElementById('map'), 
+                {
+                 center: {lat: 56.6676979, lng: -4.1706596},
+                 zoom: 7,
+                 mapTypeControl: false,
+                 streetViewControl: false,
+                 rotateControl: false,
+                 fullscreenControl: false
+                });
+                
+                var cordDundee = new google.maps.LatLng(56.462031, -2.970778);
+                var markerDundee = new google.maps.Marker({position: cordDundee,title:"Hello World!"});
+                
+                markerDundee.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                });
+                
+                markerDundee.setMap(map);
             }
+                
             </script>
+        
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGHsX3w5L0-ujecwt-4kKaHPS9i6xZr1I&callback=initMap"async defer></script>
 
         <div id="RegionMenu">
@@ -54,6 +77,12 @@
 
     </div>
 
+    https://data.parliament.scot/api/regions/
+    
+    https://data.parliament.scot/api/constituencies/
+    
+    https://ourcodeworld.com/articles/read/830/how-to-highlight-an-area-city-state-or-country-in-google-maps-with-javascript
+    
     <footer>
         <div class="FooterContent">
             <a href="#AccessOptions">Accessability</a>

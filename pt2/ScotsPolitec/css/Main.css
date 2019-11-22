@@ -18,6 +18,7 @@ style{
 }
 
 #RegionMenu{
+    display: none;
     float: right;
 
     width: 20%;
@@ -38,6 +39,11 @@ style{
     transition: 1s;
 
     margin-top: 5px;
+}
+
+#RegionMenu a:Hover{
+    background-color: rgb(19, 94, 170);
+    color: #ffffff;
 }
 
 html{
