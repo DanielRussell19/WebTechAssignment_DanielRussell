@@ -169,6 +169,17 @@ Body{
     font-family: serif;
 }
 
+#ErrorMessage{
+    display: none;
+    width: auto;
+    height: auto;
+    border: 1px solid #ff0000;
+}
+
+#ErrorMessage:target{
+    display: inline-block;
+}
+
 Footer{
     width: 100%;
 

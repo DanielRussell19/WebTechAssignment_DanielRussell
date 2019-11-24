@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <!-- SplashScreen -->    
@@ -12,12 +13,12 @@
 
 </script>
 
-<body>
+<body id="Body">
 
     <!-- ImageLogo -->
     <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%">
 
-    <header>
+    <header id="Header">
     
         <!-- NavBar -->
         <div class="NavBar">
@@ -48,38 +49,37 @@
         <p>Morbi semper aliquet libero, a aliquet libero. Cras sed nisl quis lacus placerat aliquet. Etiam mattis posuere lobortis. Sed at blandit magna, eget convallis ex. Aliquam nec ligula lectus. Etiam id neque sit amet augue fermentum vehicula sit amet sit amet diam. Quisque placerat tortor vel erat faucibus ornare. Nam at fringilla erat. Etiam augue diam, auctor et iaculis nec, convallis vel leo. Morbi nec aliquam leo. Nulla fermentum lobortis nisl, vel bibendum elit condimentum nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac lacus ex. Praesent quis libero et est suscipit aliquam. Etiam eget arcu ac elit congue facilisis. Maecenas id ultricies sapien, sit amet molestie velit</p>
         
     </div>
-    
+   
     <div class="BodyPostcodeForm">
         
         <!-- Postcode form -->
-        <form action="./Constituency.html" method="POST" id="FrmPostcode">
+        <form action="./Constituency.html" method="GET" id="FrmPostcode">
             <input type="Text" id="TxtPostcode" name="Postcode" value="" required><br>
             <input type="Submit" id="BtnSubmit" value="Find Constituency"><br>
-            <a href="Map.html">Select Region</a>
+            <a href="Map.html">Select Region</a><br>
+
+            <div id="ErrorMessage">
+                    <p>Please enter a valid postcode in Scotland</p>
+            </div>
         </form>
         
     </div>
     </div>  
     
-    <footer>
+    <footer id="Footer">
         <div class="FooterContent">
 
         <a href="#AccessOptions">Accessability Options</a>
 
         <div id="AccessOptions">
-            <a href="Constituency.html">Placeholder trash</a>
-
-            <!-- Accessability Link 1? (colour blindness) -->
-            <a href="About.html" onclick="">ColourBlindness</a>
+            <!-- Accessability Link 2? (Enlarge Text) -->
+            <a onclick="textEnlarge()">Enlarge Text/ 1x</a>
             
             <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Enlarge Text/ 1x</a>
+            <a onclick="textShrink()">Shrink Text/ 1x</a>
             
             <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Shrink Text/ 1x</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Reset Text</a>
+            <a onclick="textReset()">Reset Text</a>
         </div>
 
         </div>
@@ -90,6 +90,24 @@
     if(screen.width < 500)
     {
        x = document.getElementsByClassName("NavBar").class = "";
+    }
+
+    function textEnlarge(){
+        document.getElementById("Body").style.fontSize = "larger";
+        document.getElementById("Header").style.fontSize = "larger";
+        document.getElementById("Footer").style.fontSize = "larger";
+    }
+
+    function textShrink(){
+        document.getElementById("Body").style.fontSize = "smaller";
+        document.getElementById("Header").style.fontSize = "smaller";
+        document.getElementById("Footer").style.fontSize = "smaller";
+    }
+
+    function textReset(){
+        document.getElementById("Body").style.fontSize = "initial";
+        document.getElementById("Header").style.fontSize = "initial";
+        document.getElementById("Footer").style.fontSize = "initial";
     }
 </Script>
     
