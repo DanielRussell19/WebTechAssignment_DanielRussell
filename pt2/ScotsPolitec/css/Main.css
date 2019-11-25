@@ -39,15 +39,16 @@ style{
     transition: 1s;
 
     margin-top: 5px;
+    cursor: pointer;
 }
 
 #RegionMenu a:Hover{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
     color: #ffffff;
 }
 
 html{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
 }
 
 Header{
@@ -59,7 +60,7 @@ Header{
 .NavBar{
     width: 100%;
 
-    border: 1px solid #000000;
+    border: 2px solid #000000;
 
     text-align: center;
 }
@@ -83,21 +84,21 @@ Header{
 }
 
 .NavBar li a:hover{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
     color: #ffffff;
 
     border-radius: 20%;
 }
 
 .NavBar li a:active{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
     color: #ffffff;
 }
 
 Body{
     background-color: #ffffff;
-    border: 1px solid #000000;
-    border-radius: 10%;
+    border: 2px solid #000000;
+    border-radius: 40%;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
 }
@@ -152,10 +153,11 @@ Body{
     font-family: serif;
 
     transition: 1s;
+    cursor: pointer;
 }
 
 #BtnSubmit:hover{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
     color: #ffffff;
 }
 
@@ -183,14 +185,16 @@ Body{
 Footer{
     width: 100%;
 
-    border-top: 1px solid #000000;
-    background-color: rgb(0, 51, 153);
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    
+    background-color: rgb(51, 102, 153);
 }
 
 .FooterContent{
     width: 100%;
 
-    box-shadow: 0px 20px 0px 0px rgb(0, 51, 153);
+    box-shadow: 0px 20px 0px 0px rgb(51, 102, 153);
 }
 
 .FooterContent a{
@@ -207,10 +211,11 @@ Footer{
     font-weight: bold;
 
     transition: 1s;
+    cursor: pointer;
 }
 
 .FooterContent a:hover{
-    background-color: rgb(0, 51, 153);
+    background-color: rgb(51, 102, 153);
     color: #ffffff;
 }
 
@@ -231,6 +236,8 @@ Footer{
     margin-right: auto;
     margin-bottom: 10px;
     margin-top: 10px;
+    
+    cursor: pointer;
 }
 
 .PageBanner{
@@ -243,6 +250,15 @@ Footer{
     height: 200px;
 
     border-bottom: solid 1px #000000;
+}
+
+#MspImage img{
+    border: 2px solid #000000;
+    border-radius: 100%;
+}
+
+#ConName {
+    text-decoration: underline;
 }
 
 /*Mobile*/
@@ -285,14 +301,14 @@ Footer{
     }
     
     #MobileNavBar li a:hover{
-        background-color: rgb(0, 51, 153);
+        background-color: rgb(51, 102, 153);
         color: #ffffff;
     
         border-radius: 20%;
     }
     
     #MobileNavBar li a:active{
-        background-color: rgb(0, 51, 153);
+        background-color: rgb(51, 102, 153);
         color: #ffffff;
     }
 

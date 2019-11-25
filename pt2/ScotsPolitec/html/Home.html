@@ -16,7 +16,7 @@
 <body id="Body">
 
     <!-- ImageLogo -->
-    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%">
+    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%" onclick="navHome()">
 
     <header id="Header">
     
@@ -108,6 +108,9 @@
         document.getElementById("Body").style.fontSize = "initial";
         document.getElementById("Header").style.fontSize = "initial";
         document.getElementById("Footer").style.fontSize = "initial";
+    }
+    function navHome(){
+        window.location.href = "./Home.html";
     }
 </Script>
     

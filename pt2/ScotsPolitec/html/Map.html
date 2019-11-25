@@ -10,7 +10,7 @@
 <body>
 
     <!-- ImageLogo -->
-    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%">
+    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%" onclick="navHome()">
 
     <header>
     
@@ -108,6 +108,10 @@
 <Script>
     function EnlargeText(){
         document.getElementById("labelSelected").innerHTML = "Select Region: Dundee";
+    }
+    
+        function navHome(){
+        window.location.href = "./Home.html";
     }
 </Script>
     

@@ -11,7 +11,7 @@
 <body>
 
     <!-- ImageLogo -->
-    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%">
+    <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%" onclick="navHome()">
 
     <header>
     
@@ -33,22 +33,22 @@
     <!-- ImageBanner -->
     <img src="../images/PlaceholderBanner.jpg" alt="Banner" class="PageBanner">
 
-    <div class="BodyContent" style="width: 100%; text-align: center;">
+    <div class="BodyContent" style="width: 50%; text-align: center; float:left;">
         <h2 id="ConName"></h2><br>
-        <h2 id="MspName"></h2><br>
+        <h2 id="MspName">Name:</h2><br>
         <div id="MspImage">
         </div><br>
         <p id="MspParty"></p><br>
         <p id="MspEmail"></p><br>
         <p id="MspTele"></p><br>
-        <p id="MspNotes"></p><br>
-
-        <div id="RegionMenu" style="display: inline-block; width: 100%; margin-top: 0px; margin-bottom: 20px;">
-                <a onclick="">Job Statistics</a><br>
-                <a onclick="">Education Statistics</a><br>
-                <a onclick="">Health Statistics</a>
-        </div>
-    </div>  
+        <p id="MspNotes"></p>
+    </div>
+    
+    <div id="RegionMenu" style="display: inline-block; width: 50%; margin-top: 25%; margin-bottom: 20px; float: right;">
+        <a onclick="">Job Statistics</a><br>
+        <a onclick="">Education Statistics</a><br>
+        <a onclick="">Health Statistics</a>
+    </div>
 
     <footer>
         <div class="FooterContent">
@@ -71,6 +71,10 @@
 </body>
 
 <script>
+    
+        function navHome(){
+        window.location.href = "./Home.html";
+    }
             //Onload function extracts user submitted postcode from url and creates a request
             //if an authentic postcode, the remainder of the script is executed via success.
             //if an unauthentic postcode or request error, user is sent back to homepage.
@@ -161,17 +165,21 @@
                                 if(data.IsCurrent == true)
                                 {
                                     document.getElementById("MspName").innerHTML = data.ParliamentaryName;
-                                    document.getElementById("MspImage").innerHTML = "<img src= " + data.PhotoURL + " alt=MspPhoto  width=300 height=300>";
+                                    document.getElementById("MspParty").innerHTML = "MSP: " + data.ParliamentaryName;
+                                    document.getElementById("MspEmail").innerHTML = "MSP: " + data.ParliamentaryName;
+                                    document.getElementById("MspTele").innerHTML = "MSP: " + data.ParliamentaryName;
+                                    document.getElementById("MspImage").innerHTML = "<img src= " + data.PhotoURL + " width=300 height=300 alt=PhotoNotFound>";
                                 }
                                 else
                                 {
-
+                                    document.getElementById("MspName").innerHTML = "No elect MSP found";
+                                    document.getElementById("MspImage").innerHTML = "No elect MSP found";
                                 }
 
                             },
                             error: function()
                             {
-                                //window.location.href = "./Home.html#ErrorMessage";
+                                window.location.href = "./Home.html#ErrorMessage";
                             }
 
                     });
@@ -183,38 +191,6 @@
                 }
 
             });
-
-/*
-            //searchs members to find elect msp by using person id from above as a parameter
-            //final check is done by validating field "isCurrent" as true
-            //else MSP will be displayed as blank displaying name as "No current standing MSP"
-
-            $.ajax({
-
-            url: personrequest,
-            type: "get",
-            dataType: "json",
-            success: function(data) 
-            {
-                console.log(data);
-                if(data.IsCurrent == true)
-                {
-                    document.getElementById("MspName").innerHTML = data.ParliamentaryName;
-                    document.getElementById("MspImage").innerHTML = "<img src= " + data.PhotoURL + " alt=MspPhoto  width=300 height=300>";
-                }
-                else
-                {
-
-                }
-
-            },
-            error: function()
-            {
-            //window.location.href = "./Home.html#ErrorMessage";
-            }
-
-            });
-    */
 
             });
 
