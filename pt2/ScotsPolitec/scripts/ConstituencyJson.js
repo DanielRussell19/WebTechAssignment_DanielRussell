@@ -73,7 +73,7 @@ $(function ()
         },
         error: function()
         {
-            window.location.href = "./Home.html#ErrorMessage";
+            document.getElementById("ConName").innerHTML = "Constituencies Unavailable";
         }
     
     });
@@ -117,12 +117,12 @@ $(function ()
                 else
                 {
                     document.getElementById("MspName").innerHTML = "No elect MSP found";
-                    document.getElementById("MspImage").innerHTML = "No elect MSP found";
+                    document.getElementById("MspImage").innerHTML = "No Image found";
                 }
             },
             error: function()
             {
-                window.location.href = "./Home.html#ErrorMessage";
+                document.getElementById("MspName").innerHTML = "Member Unavailable";
             }
 
             });
@@ -130,7 +130,7 @@ $(function ()
         },
         error: function()
         {
-            window.location.href = "./Home.html#ErrorMessage";
+            document.getElementById("MspName").innerHTML = "Member Constituency Unavailable";
         }
 
     });
@@ -146,15 +146,12 @@ $(function ()
         {
                 partyId = 0;
 
-                console.log(personId);
-
                 for(x of data){
                     if(x.PersonID == personId){
                         partyId = x.PartyID;
                     }
                 }
 
-                console.log(partyId);
                 partyRequest = partyRequest.concat(partyId);
 
                 $.ajax({
@@ -168,7 +165,7 @@ $(function ()
                     },
                     error: function()
                     {
-                        window.location.href = "./Home.html#ErrorMessage";
+                        document.getElementById("MspParty").innerHTML = "Party Unavailable";
                     }
         
                 });
@@ -176,9 +173,59 @@ $(function ()
         },
         error: function()
         {
-            window.location.href = "./Home.html#ErrorMessage";
+            document.getElementById("MspParty").innerHTML = "MemberParty Unavailable";
         }
     
+    });
+
+    $.ajax({
+
+        url: "https://data.parliament.scot/api/emailaddresses",
+        type: "get",
+        dataType: "json",
+        success: function(data) 
+        {
+
+            for(x of data){
+                if(x.PersonID == personId && x.Address != "")
+                {
+                    document.getElementById("MspWEmail").innerHTML = "Work Email: " + x.Address;
+                }
+                
+                if(x.PersonID == personId && x.Address != "" && x.EmailAddressTypeID == 2){
+                    document.getElementById("MspCEmail").innerHTML = "Constituency Email: " + x.Address;
+                }
+            }
+        },
+        error: function()
+        {
+            document.getElementById("MspWEmail").innerHTML = "Email Unavailable";
+            document.getElementById("MspVEmail").innerHTML = "Email Unavailable";
+        }
+
+    });
+
+    //As of development parliment.scot API telephones was offline
+    $.ajax({
+
+        url: "https://data.parliament.scot/api/telephones",
+        type: "get",
+        dataType: "json",
+        success: function(data) 
+        {
+            console.log(personId);
+
+            for(x of data){
+                if(x.PersonID == personId){
+                    document.getElementById("MspTele").innerHTML = data.ActualName;
+                }
+            }
+        },
+        error: function()
+        {
+            document.getElementById("MspTele").innerHTML = "Telephones Unavailable";
+        }
+
     });
 
 })
