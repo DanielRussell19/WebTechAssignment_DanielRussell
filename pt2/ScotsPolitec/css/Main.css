@@ -249,7 +249,7 @@ Footer{
     width: 100%;
     height: 200px;
 
-    border-bottom: solid 1px #000000;
+    border-bottom: solid 2px #000000;
 }
 
 #MspImage img{
@@ -314,6 +314,10 @@ Footer{
 
     #MobileNavBar:Target{
         display: inline-block;
+    }
+
+    body{
+        border-radius: 0%;
     }
   }
   

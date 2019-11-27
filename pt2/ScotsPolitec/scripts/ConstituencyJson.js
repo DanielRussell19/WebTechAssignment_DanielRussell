@@ -10,9 +10,10 @@ $(function ()
     var postcodeRequest = "https://api.postcodes.io/scotland/postcodes/";
     var submitPostcode = document.URL;
 
-    //var conCode;
-    //var partyId; //originally intended as local variables but are ignored for bad scoping rules
-    //var personId;
+    var conCode;
+    var conId;
+    var partyId;
+    var personId;
 
     //take user input postcode from url as it is a get request
     submitPostcode = submitPostcode.substr(submitPostcode.indexOf("=") +1,submitPostcode.length);
@@ -20,7 +21,7 @@ $(function ()
     //checks if space is present is postcode
     //if so postcode is split into two and joined again to form a complete postcode with no spaces
     //else no changes are made
-    //before being postcode is concatinated with postcode request
+    //before postcode is concatinated with postcode request
     if(submitPostcode.includes("+"))
     {
         a = submitPostcode.slice(0,2);
@@ -135,8 +136,11 @@ $(function ()
 
     });
 
+    //Another issue of scope and hoisting justified using a nested Jquery request to use and modify PartyID
+
     //searches for and get party id that is assoiated with matching personId
     //retrives partyname assoiated with partyid
+    //displays party found is assosiation with personid
     $.ajax({
 
         url: "https://data.parliament.scot/api/memberparties",
@@ -178,6 +182,10 @@ $(function ()
     
     });
 
+    //searches parliment.scot for emails addresses that match personId
+    //emailtypeid 2 is a constituency email
+    //emailtypeid 1 is a work email
+    //displays emails found
     $.ajax({
 
         url: "https://data.parliament.scot/api/emailaddresses",
@@ -187,7 +195,7 @@ $(function ()
         {
 
             for(x of data){
-                if(x.PersonID == personId && x.Address != "")
+                if(x.PersonID == personId && x.Address != "" && x.EmailAddressTypeID == 1)
                 {
                     document.getElementById("MspWEmail").innerHTML = "Work Email: " + x.Address;
                 }
@@ -206,6 +214,10 @@ $(function ()
     });
 
     //As of development parliment.scot API telephones was offline
+    //unable to predict Json structure nor recive any data concerning MSP telephone numbers
+
+    //used to search parliament.scot for telephones numbers that match personId
+    //displays phonenumber found
     $.ajax({
 
         url: "https://data.parliament.scot/api/telephones",
@@ -213,13 +225,13 @@ $(function ()
         dataType: "json",
         success: function(data) 
         {
-            console.log(personId);
+            //console.log(personId);
 
-            for(x of data){
-                if(x.PersonID == personId){
-                    document.getElementById("MspTele").innerHTML = data.ActualName;
-                }
-            }
+            //for(x of data){
+                //if(x.PersonID == personId){
+                    //document.getElementById("MspTele").innerHTML = data.ActualName;
+                //}
+            //}
         },
         error: function()
         {
@@ -232,10 +244,11 @@ $(function ()
 
             //  Json sources
             //---------------------------------------------------------------------------
+            //  https://api.postcodes.io/scotland/postcodes/ get constituncy code where postcode
             //  https://data.parliament.scot/api/constituencies/  S16000122  get ID = 90
             //  https://data.parliament.scot/api/MemberElectionConstituencyStatuses/ where constituencies id = 90 get personid =1848
             //  https://data.parliament.scot/api/members/1848 where personid
             //  https://data.parliament.scot/api/memberparties where personid get party id
             //  https://data.parliament.scot/api/parties/ get party where party id
-            //  https://data.parliament.scot/api/emailaddresses
-            //  https://data.parliament.scot/api/telephones
+            //  https://data.parliament.scot/api/emailaddresses get email where personid and emailtype
+            //  https://data.parliament.scot/api/telephones get telephone where personid and telephonetype?

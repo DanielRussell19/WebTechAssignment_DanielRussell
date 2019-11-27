@@ -10,12 +10,12 @@
     <script src="../scripts/ConstituencyJson.js"></script>
 </head>
 
-<body>
+<body id="Body">
 
     <!-- ImageLogo -->
     <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%" onclick="navHome()">
 
-    <header>
+    <header id="Header">
     
         <!-- NavBar -->
         <div class="NavBar">
@@ -48,27 +48,24 @@
     </div>
     
     <div id="RegionMenu" style="display: inline-block; width: 50%; margin-top: 25%; margin-bottom: 20px; float: right;">
-        <a onclick="">Job Statistics</a><br>
+        <a onclick="navJobStatPostcode()">Job Statistics</a><br>
         <a onclick="">Education Statistics</a><br>
         <a onclick="">Health Statistics</a>
     </div>
 
-    <footer>
+    <footer id="Footer">
         <div class="FooterContent">
             <a href="#AccessOptions">Accessability</a>
-        <div id="AccessOptions">
-            <!-- Accessability Link 1? (colour blindness) -->
-            <a href="About.html" onclick="">ColourBlindness</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Enlarge Text/ 1x</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Shrink Text/ 1x</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Reset Text</a>
-        </div>
+            <div id="AccessOptions">
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textEnlarge()">Enlarge Text/ 1x</a>
+                
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textShrink()">Shrink Text/ 1x</a>
+                
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textReset()">Reset Text</a>
+            </div>
         </div>
     </footer>
 </body>

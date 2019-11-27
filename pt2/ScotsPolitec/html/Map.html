@@ -5,14 +5,16 @@
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../scripts/Main.js"></script>
 </head>
 
-<body>
+<body id="Body">
 
     <!-- ImageLogo -->
     <img src="../images/PlaceHolderLogo.jpg" alt="Logo" class="PageLogo" width="25%" height="25%" onclick="navHome()">
 
-    <header>
+    <header id="Header">
     
         <!-- NavBar -->
         <div class="NavBar">
@@ -79,28 +81,19 @@
 
     </div>
 
-    https://data.parliament.scot/api/regions/
-    
-    https://data.parliament.scot/api/constituencies/
-    
-    https://ourcodeworld.com/articles/read/830/how-to-highlight-an-area-city-state-or-country-in-google-maps-with-javascript
-    
-    <footer>
+    <footer id="Footer">
         <div class="FooterContent">
             <a href="#AccessOptions">Accessability</a>
-        <div id="AccessOptions">
-            <!-- Accessability Link 1? (colour blindness) -->
-            <a href="About.html" onclick="">ColourBlindness</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href"" onclick="EnlargeText">Enlarge Text/ 1x</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Shrink Text/ 1x</a>
-            
-            <!-- Accessability Link 2? (Enlarge Text) -->
-            <a href="About.html" onclick="">Reset Text</a>
-        </div>
+            <div id="AccessOptions">
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textEnlarge()">Enlarge Text/ 1x</a>
+                
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textShrink()">Shrink Text/ 1x</a>
+                
+                <!-- Accessability Link 2? (Enlarge Text) -->
+                <a onclick="textReset()">Reset Text</a>
+            </div>
         </div>
     </footer>
 </body>
