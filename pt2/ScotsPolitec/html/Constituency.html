@@ -48,7 +48,7 @@
     </div>
     
     <div id="RegionMenuC">
-        <a onclick="navJobStatPostcode()">Job Statistics</a><br>
+        <a onclick="navJobStat()">Job Statistics</a><br>
         <a onclick="">Education Statistics</a><br>
         <a onclick="">Health Statistics</a>
     </div>
@@ -69,5 +69,29 @@
         </div>
     </footer>
 </body>
+
+<script>
+
+    function navJobStat(){
+
+        var submitPostcode = document.URL;
+        //take user input postcode from url as it is a get request
+        submitPostcode = submitPostcode.substr(submitPostcode.indexOf("=") +1,submitPostcode.length);
+
+        //checks if space is present is postcode
+        //if so postcode is split into two and joined again to form a complete postcode with no spaces
+        //else no changes are made
+        //before postcode is concatinated with postcode request
+        if(submitPostcode.includes("+"))
+        {
+            a = submitPostcode.slice(0,2);
+            b = submitPostcode.slice(submitPostcode.indexOf("+")+1,submitPostcode.length);
+            submitPostcode = a+b;
+        }
+
+        navJobStatPostcode(submitPostcode);
+    }
+
+</script>
     
 </html>
