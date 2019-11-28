@@ -261,6 +261,42 @@ Footer{
     text-decoration: underline;
 }
 
+#RegionMenuC{
+    width: 50%; 
+    margin-top: 25%; 
+    margin-bottom: 20px; 
+    float: right;
+    text-align: center;
+}
+
+#RegionMenuC a{
+    border: #000000 solid 1px;
+    text-decoration: none;
+    color: #000000;
+
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+
+    transition: 1s;
+
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#RegionMenuC a:Hover{
+    background-color: rgb(51, 102, 153);
+    color: #ffffff;
+}
+
+.BodyContentC{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+    text-align: center;
+    float:left;
+}
+
 /*Mobile*/
 @media screen and (Max-width: 500px) {
     .BodyWelcomeMessage{
@@ -319,6 +355,56 @@ Footer{
     body{
         border-radius: 0%;
     }
+
+    #map {
+        float: none;
+        height: 500px;
+        width: 100%;
+    }
+
+    .BodyContent{
+        float: none;
+        width: 100%;
+    }
+
+    #RegionMenuC{
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 5%; 
+    }
+
+    #RegionMenuC a{
+        border: #000000 solid 1px;
+        text-decoration: none;
+        color: #000000;
+    
+        font-size: 20px;
+        font-family: serif;
+        font-weight: bold;
+    
+        transition: 1s;
+    
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    #RegionMenuC a:Hover{
+        background-color: rgb(51, 102, 153);
+        color: #ffffff;
+    }
+
+    .BodyContentC{
+        float: none;
+        width: 100%;
+    }
+
+    #RegionMenu{
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 5%; 
+    }
   }
   
 /*Tablet*/
@@ -333,6 +419,59 @@ Footer{
         text-align: center;
         margin-right: 0%;
         margin-top: 0%;
+    }
+
+    body{
+        border-radius: 0%;
+    }
+
+    #RegionMenu{
+        margin-top: 5%; 
+    }
+
+    #RegionMenuC{
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 5%; 
+    }
+
+    #RegionMenuC a{
+        border: #000000 solid 1px;
+        text-decoration: none;
+        color: #000000;
+    
+        font-size: 20px;
+        font-family: serif;
+        font-weight: bold;
+    
+        transition: 1s;
+    
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    #RegionMenuC a:Hover{
+        background-color: rgb(51, 102, 153);
+        color: #ffffff;
+    }
+
+    .BodyContentC{
+        float: none;
+        width: 100%;
+    }
+
+    #map {
+        float: none;
+        height: 500px;
+        width: 100%;
+    }
+
+    #RegionMenu{
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 5%; 
     }
   }
 
