@@ -1,6 +1,6 @@
 $(function() 
 {
-    var JobStateRequest = "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=";
+    var submitPostcode = document.URL;
     
     //take user input postcode from url as it is a get request
     submitPostcode = submitPostcode.substr(submitPostcode.indexOf("=") +1,submitPostcode.length);
@@ -11,37 +11,29 @@ $(function()
     //before postcode is concatinated with postcode request
     if(submitPostcode.includes("+"))
     {
-        a = submitPostcode.slice(0,2);
+        a = submitPostcode.slice(0,submitPostcode.indexOf("+"));
         b = submitPostcode.slice(submitPostcode.indexOf("+")+1,submitPostcode.length);
         submitPostcode = a+b;
+    }
     
-        JobStateRequest = JobStateRequest + submitPostcode;
-    }
-    else
-    {
-        JobStateRequest = JobStateRequest + submitPostcode;
-    }
-
     $.ajax({
 
-        url: JobStateRequest,
+        url: "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=g50ru",
         type: "get",
         dataType: "json",
+        timeout: 8000,
         success: function(data) 
         {
-            //console.log(personId);
-
-            //for(x of data){
-                //if(x.PersonID == personId){
-                    //document.getElementById("MspTele").innerHTML = data.ActualName;
-                //}
-            //}
+            console.log(data);
+            $.each(data, function(i,field){
+                console.log(field);
+            })
         },
         error: function()
         {
-            
+            document.getElementById("ConName").innerHTML = "Constituencies Unavailable";
         }
-
+    
     });
 })
 

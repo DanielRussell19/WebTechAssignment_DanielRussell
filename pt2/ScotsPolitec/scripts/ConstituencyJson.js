@@ -2,7 +2,7 @@
 //external javascript for the purpose of retieving relevant constituency and MSP data
 
 //self invoking function, made to load all relevant data about a constituency and elect MSP
-$(function () 
+$(function() 
 {
     //local variables for function 
     var personRequest = "https://data.parliament.scot/api/members/";
@@ -24,7 +24,7 @@ $(function ()
     //before postcode is concatinated with postcode request
     if(submitPostcode.includes("+"))
     {
-        a = submitPostcode.slice(0,2);
+        a = submitPostcode.slice(0,submitPostcode.indexOf("+"));
         b = submitPostcode.slice(submitPostcode.indexOf("+")+1,submitPostcode.length);
         submitPostcode = a+b;
 
@@ -42,11 +42,13 @@ $(function ()
         url: postcodeRequest,
         type: "get",
         dataType: "json",
+        timeout: 2000,
         success: function(data) 
         {
             x = data.result;
             conCode = data.result.codes["scottish_parliamentary_constituency"];
             document.getElementById("ConName").innerHTML = x["scottish_parliamentary_constituency"];
+            console.log(conCode);
         },
         error: function()
         {
@@ -61,6 +63,7 @@ $(function ()
         url: "https://data.parliament.scot/api/constituencies/",
         type: "get",
         dataType: "json",
+        timeout: 8000,
         success: function(data) 
         {
             conId = 0;
@@ -69,6 +72,7 @@ $(function ()
             if(field.ConstituencyCode == conCode)
             {
                 conId = field.ID;
+                console.log(conId);
             }
             })
         },
@@ -85,6 +89,7 @@ $(function ()
         url: "https://data.parliament.scot/api/MemberElectionConstituencyStatuses/",
         type: "get",
         dataType: "json",
+        timeout: 5000,
         success: function(data) 
         {
             personId = 0;
@@ -96,6 +101,7 @@ $(function ()
             }
             }
 
+            console.log(personId);
             personRequest = personRequest.concat(personId.toString());
 
             //scoping issues from personId forced the nessesity for a nested Jquery request
@@ -108,6 +114,7 @@ $(function ()
             url: personRequest,
             type: "get",
             dataType: "json",
+            timeout: 5000,
             success: function(data) 
             {
                 if(data.IsCurrent == true)
@@ -146,6 +153,7 @@ $(function ()
         url: "https://data.parliament.scot/api/memberparties",
         type: "get",
         dataType: "json",
+        timeout: 5000,
         success: function(data) 
         {
                 partyId = 0;
@@ -156,6 +164,7 @@ $(function ()
                     }
                 }
 
+                console.log(partyId);
                 partyRequest = partyRequest.concat(partyId);
 
                 $.ajax({
@@ -191,6 +200,7 @@ $(function ()
         url: "https://data.parliament.scot/api/emailaddresses",
         type: "get",
         dataType: "json",
+        timeout: 8000,
         success: function(data) 
         {
 
