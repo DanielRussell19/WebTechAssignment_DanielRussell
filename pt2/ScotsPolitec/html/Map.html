@@ -87,7 +87,7 @@
 
                 markerMSF.addListener('click',function(){
                     document.getElementById("RegionMenu").style.display = "inline-block";
-                    document.getElementById("labelSelected").innerHTML = "Select Region: Mid Scotland & Fife";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Mid Scotland and Fife";
                 });
 
                 markerSS.addListener('click',function(){
@@ -165,20 +165,49 @@
 
 function navJobStat(){
 
-var submitPostcode = document.URL;
-//take user input postcode from url as it is a get request
-submitPostcode = submitPostcode.substr(submitPostcode.indexOf("=") +1,submitPostcode.length);
+var submitPostcode = 0;
 
-//checks if space is present is postcode
-//if so postcode is split into two and joined again to form a complete postcode with no spaces
-//else no changes are made
-//before postcode is concatinated with postcode request
-if(submitPostcode.includes("+"))
+if(document.getElementById("labelSelected").innerHTML == "Select Region: West Scotland")
 {
-    a = submitPostcode.slice(0,2);
-    b = submitPostcode.slice(submitPostcode.indexOf("+")+1,submitPostcode.length);
-    submitPostcode = a+b;
+    submitPostcode = "1";
 }
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: Central Scotland")
+{
+    submitPostcode = "2";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: Glasgow")
+{
+    submitPostcode = "G50ru";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: Highlands and Islands")
+{
+    submitPostcode = "4";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: Lothian")
+{
+    submitPostcode = "5";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: South Scotland")
+{
+    submitPostcode = "6";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: Mid Scotland and Fife")
+{
+    submitPostcode = "7";
+}
+
+if(document.getElementById("labelSelected").innerHTML == "Select Region: North East Scotland")
+{
+    submitPostcode = "8";
+}
+
+console.log(submitPostcode);
 
 navJobStatPostcode(submitPostcode);
 }

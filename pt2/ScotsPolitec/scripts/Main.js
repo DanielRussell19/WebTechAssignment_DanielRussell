@@ -6,10 +6,6 @@ function navJobStatPostcode(postcode){
     window.location.href = "./RegionJob.html?Postcode=" + postcode;
 }
 
-function navJobStatRegion(){
-    window.location.href = "./RegionJob.html?Region=G50ru";
-}
-
 function textEnlarge(){
     document.getElementById("Body").style.fontSize = "larger";
     document.getElementById("Header").style.fontSize = "larger";
