@@ -47,7 +47,7 @@
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), 
                 {
-                 center: {lat: 56.6676979, lng: -4.1706596},
+                 center: {lat: 57.055355,lng: -2.519492},
                  zoom: 7,
                  mapTypeControl: false,
                  streetViewControl: false,
@@ -56,15 +56,78 @@
                  zoomControl:false
                 });
                 
-                var cordDundee = new google.maps.LatLng(56.462031, -2.970778);
-                var markerDundee = new google.maps.Marker({position: cordDundee,title:"Hello World!"});
+                var cordNES = new google.maps.LatLng(57.055355, -2.519492);
+                var markerNES = new google.maps.Marker({position: cordNES,title:"Hello World!"});
+
+                var cordMSF = new google.maps.LatLng(56.374116, -3.843135);
+                var markerMSF = new google.maps.Marker({position: cordMSF,title:"Hello World!"});
                 
-                markerDundee.addListener('click',function(){
+                var cordSS = new google.maps.LatLng(55.505761, -3.694097);
+                var markerSS = new google.maps.Marker({position: cordSS,title:"Hello World!"});
+
+                var cordL = new google.maps.LatLng(55.923157, -3.362933);
+                var markerL = new google.maps.Marker({position: cordL,title:"Hello World!"});
+
+                var cordCS = new google.maps.LatLng(55.885057, -3.882454);
+                var markerCS = new google.maps.Marker({position: cordCS,title:"Hello World!"});
+
+                var cordG = new google.maps.LatLng(55.856214, -4.257006);
+                var markerG = new google.maps.Marker({position: cordG,title:"Hello World!"});
+
+                var cordWS = new google.maps.LatLng(55.935007, -4.587044);
+                var markerWS = new google.maps.Marker({position: cordWS,title:"Hello World!"});
+
+                var cordHLI = new google.maps.LatLng(57.093798, -4.741072);
+                var markerHLI = new google.maps.Marker({position: cordHLI,title:"Hello World!"});
+                
+                markerNES.addListener('click',function(){
                     document.getElementById("RegionMenu").style.display = "inline-block";
-                    document.getElementById("labelSelected").innerHTML = "Select Region: Dundee";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: North East Scotland";
+                });
+
+                markerMSF.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Mid Scotland & Fife";
+                });
+
+                markerSS.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: South Scotland";
+                });
+
+                markerL.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Lothian";
+                });
+
+                markerHLI.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Highlands and Islands";
                 });
                 
-                markerDundee.setMap(map);
+                markerG.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Glasgow";
+                });
+
+                markerCS.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: Central Scotland";
+                });
+
+                markerWS.addListener('click',function(){
+                    document.getElementById("RegionMenu").style.display = "inline-block";
+                    document.getElementById("labelSelected").innerHTML = "Select Region: West Scotland";
+                });
+
+                markerNES.setMap(map);
+                markerMSF.setMap(map);
+                markerSS.setMap(map);
+                markerL.setMap(map);
+                markerHLI.setMap(map);
+                markerG.setMap(map);
+                markerCS.setMap(map);
+                markerWS.setMap(map);
             }
                 
             </script>

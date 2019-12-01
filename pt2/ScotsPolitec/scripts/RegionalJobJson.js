@@ -30,8 +30,6 @@ $(function()
             var selectionbox = document.getElementById("dropboxJobs");
             var i = 0;
 
-            console.log(data);
-
             for(x of data.jobsBreakdown){
                 job = document.createElement("option");
 
@@ -90,7 +88,6 @@ function getSoc(jobName)
         {
             var temp = 0;
             temp = data[0].soc;
-            console.log(data[0].title);
 
             loadPay(temp);
             loadChangePay(temp);
@@ -124,8 +121,8 @@ function loadGraph(value,description){
     var options = {
         title: 'Number of workers in sector ' + description,
         is3D: true,
-        width: 400,
-        height: 400,
+        width: 300,
+        height: 300,
         colors: ['#006622', '#a3a3c2']
     };
 
@@ -152,16 +149,16 @@ function loadPay(soc){
             
             temp = data.series[0].estpay;
 
+            br = document.createElement("br");
+            br.id = "brSalary";
+            txtlbl.append(br);
+
             txt = document.createElement("p");
             
             txt.id = "labelSalary";
             txt.innerHTML = " Salary: $ " + temp;
 
             txtlbl.append(txt);
-
-            br = document.createElement("br");
-            br.id = "brSalary";
-            txtlbl.append(br);
         },
         error: function()
         {
@@ -197,25 +194,25 @@ function loadChangePay(soc){
 
             if(temp >0)
             {
+                br = document.createElement("br");
+                br.id = "brchangeSalary";
+                txtlbl.append(br);
+
                 txt = document.createElement("p");
                 txt.id = "changeSalary";
                 txt.innerHTML = " Change in salary: $ +" + temp;
                 txtlbl.append(txt);
-
-                br = document.createElement("br");
-                br.id = "brchangeSalary";
-                txtlbl.append(br);
             }
             else
             {
+                br = document.createElement("br");
+                br.id = "brchangeSalary";
+                txtlbl.append(br);
+
                 txt = document.createElement("p");
                 txt.id = "changeSalary";
                 txt.innerHTML = " Change in salary: $ " + temp;
                 txtlbl.append(txt);
-
-                br = document.createElement("br");
-                br.id = "brchangeSalary";
-                txtlbl.append(br);
             }
 
             txtlbl.append(txt);
