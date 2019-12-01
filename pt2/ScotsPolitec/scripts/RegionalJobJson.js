@@ -16,10 +16,12 @@ $(function()
         b = submitPostcode.slice(submitPostcode.indexOf("+")+1,submitPostcode.length);
         submitPostcode = a+b;
     }
+
+    var request = "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=" + submitPostcode;
     
     $.ajax({
 
-        url: "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=g50ru",
+        url: request,
         type: "get",
         dataType: "json",
         timeout: 2000,
@@ -27,6 +29,8 @@ $(function()
         {
             var selectionbox = document.getElementById("dropboxJobs");
             var i = 0;
+
+            console.log(data);
 
             for(x of data.jobsBreakdown){
                 job = document.createElement("option");
@@ -38,18 +42,68 @@ $(function()
                 selectionbox.add(job);
                 i++;
             }
+        },
+        error: function()
+        {
+            window.location.href = "./Home.html#ErrorMessage";
         }
     
     });
 
 })
 
-function updateValues(){
+function updateValues()
+{
     var selectionbox = document.getElementById("dropboxJobs");
 
-    loadGraph(selectionbox.options[selectionbox.selectedIndex].value,selectionbox.options[selectionbox.selectedIndex].text);
-    loadPay(selectionbox.options[selectionbox.selectedIndex].id);
-    loadChangePay(selectionbox.options[selectionbox.selectedIndex].id);
+    var label1 = document.getElementById("labelSalary");
+    var label2 = document.getElementById("changeSalary");
+    var br1 = document.getElementById("brchangeSalary");
+    var br2 = document.getElementById("brSalary");
+
+    var selectId = selectionbox.options[selectionbox.selectedIndex].value;
+    var selectName = selectionbox.options[selectionbox.selectedIndex].text;
+
+    if(label1 != null && label2 !=null){
+        label1.remove();
+        label2.remove();
+        br1.remove();
+        br2.remove();
+    }
+
+    loadGraph(selectId,selectName);
+    
+    getSoc(selectName);
+}
+
+function getSoc(jobName)
+{
+    var request = "http://api.lmiforall.org.uk/api/v1/soc/search?q=" + jobName
+
+    $.ajax({
+
+        url: request,
+        type: "get",
+        dataType: "json",
+        timeout: 2000,
+        success: function(data)
+        {
+            var temp = 0;
+            temp = data[0].soc;
+            console.log(data[0].title);
+
+            loadPay(temp);
+            loadChangePay(temp);
+        },
+        error: function()
+        {
+            txt = document.createElement("p");
+            txt.id = "labelSalary";
+            txt.innerHTML = " Error: Could not find job Soc Code";
+        }
+
+    });
+
 }
 
 function loadGraph(value,description){
@@ -68,7 +122,7 @@ function loadGraph(value,description){
       ]);
         
     var options = {
-        title: 'Number of workers in sector X',
+        title: 'Number of workers in sector ' + description,
         is3D: true,
         width: 400,
         height: 400,
@@ -94,17 +148,27 @@ function loadPay(soc){
         success: function(data) 
         {
             var txtlbl = document.getElementById("selectionDetails");
-            var temp;
+            var temp = 0;
             
             temp = data.series[0].estpay;
 
             txt = document.createElement("p");
-            txt.innerHTML = "Salary: $ " + temp;
-
-            br = document.createElement("br");
+            
+            txt.id = "labelSalary";
+            txt.innerHTML = " Salary: $ " + temp;
 
             txtlbl.append(txt);
+
+            br = document.createElement("br");
+            br.id = "brSalary";
             txtlbl.append(br);
+        },
+        error: function()
+        {
+            txt = document.createElement("p");
+            txt.id = "labelSalary";
+            txt.innerHTML = " Error: Can not load salary";
+            txtlbl.append(txt);
         }
     
     });
@@ -118,12 +182,12 @@ function loadChangePay(soc){
         url: request,
         type: "get",
         dataType: "json",
-        timeout: 2000,
+        timeout: 8000,
         success: function(data) 
         {
             var i = 0;
             var txtlbl = document.getElementById("selectionDetails");
-            var temp;
+            var temp = 0;
 
             for(x of data.annual_changes)
             {
@@ -134,18 +198,33 @@ function loadChangePay(soc){
             if(temp >0)
             {
                 txt = document.createElement("p");
-                txt.innerHTML = "Change in salary: $ +" + temp;
+                txt.id = "changeSalary";
+                txt.innerHTML = " Change in salary: $ +" + temp;
+                txtlbl.append(txt);
+
+                br = document.createElement("br");
+                br.id = "brchangeSalary";
+                txtlbl.append(br);
             }
             else
             {
                 txt = document.createElement("p");
-                txt.innerHTML = "Change in salary: $ " + temp;
+                txt.id = "changeSalary";
+                txt.innerHTML = " Change in salary: $ " + temp;
+                txtlbl.append(txt);
+
+                br = document.createElement("br");
+                br.id = "brchangeSalary";
+                txtlbl.append(br);
             }
 
-            br = document.createElement("br");
-
             txtlbl.append(txt);
-            txtlbl.append(br);
+        },
+        error: function()
+        {
+            txt = document.createElement("p");
+            txt.id = "changeSalary";
+            txt.innerHTML = " Error: Can not load change in salary";
         }
     
     });
