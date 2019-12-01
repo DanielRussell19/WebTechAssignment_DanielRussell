@@ -41,7 +41,12 @@
     <div id="PieChart3d"></div>
         
     <div id="selectionJob">
-          <select id="dropboxJobs"></select><br>
+          <div id="selectionDetails"></div><br>
+          <p>Select job.</p>
+          <select id="dropboxJobs" onchange="updateValues()">
+              <option selected></option>
+          </select><br>
+
           <a onclick="btnApply">Apply</a>
     </div>
         
@@ -63,33 +68,5 @@
         </div>
     </footer>
 </body>
-    
-<script>
-    google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      // Define the chart to be drawn.
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Element');
-      data.addColumn('number', 'Percentage');
-      data.addRows([
-        ['Retail', 0.90],
-        ['Other', 0.10],
-      ]);
-        
-    var options = {
-        title: 'Number of workers in sector X',
-        is3D: true,
-        width: 600,
-        height: 600,
-        colors: ['#006622', '#a3a3c2']
-    };
-
-      // Instantiate and draw the chart.
-      var chart = new google.visualization.PieChart(document.getElementById('PieChart3d'));
-      chart.draw(data, options);
-    }    
-</script>
     
 </html>

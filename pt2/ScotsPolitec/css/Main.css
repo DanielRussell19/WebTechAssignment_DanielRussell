@@ -298,14 +298,18 @@ Footer{
 }
 
 #PieChart3d{
-    float: left;
     width: 50%;
 }
 
 #selectionJob{
-    margin-top: 15%;
-    float: right;
-    width: 50%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+#selectionJob select{
+    width: 100%;
     text-align: center;
 }
 
