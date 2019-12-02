@@ -1,4 +1,7 @@
+//Daniel Russell
+//external javascript used to handle operations exclusive to jobstatistics
 
+//self invoking function, onload handles the retrieval of data, setting up of the graph and orginising the display
 $(function() 
 {
     var submitPostcode = document.URL;
@@ -97,6 +100,7 @@ function getSoc(jobName)
             txt = document.createElement("p");
             txt.id = "labelSalary";
             txt.innerHTML = " Error: Could not find job Soc Code";
+            txtlbl.append(txt);
         }
 
     });
@@ -222,6 +226,7 @@ function loadChangePay(soc){
             txt = document.createElement("p");
             txt.id = "changeSalary";
             txt.innerHTML = " Error: Can not load change in salary";
+            txtlbl.append(txt);
         }
     
     });

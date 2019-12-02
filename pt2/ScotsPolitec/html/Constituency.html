@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../scripts/Main.js"></script>
     <script src="../scripts/ConstituencyJson.js"></script>
 </head>
@@ -18,7 +19,7 @@
     <header id="Header">
     
         <!-- NavBar -->
-        <div class="NavBar">
+        <div id="NavBar" class="NavBar">
                     
             <nav>
                 <ul>
@@ -28,6 +29,16 @@
                 </ul>
             </nav>
                     
+        </div>
+
+        <!-- DropMenu -->
+        <div id="DropMenu">
+            <button id="DropBtn"><i class="fas fa-bars"></i></button>
+            <div id="DropContent">
+                <a href="Home.html">Home</a>
+                <a href="Map.html">Regional Map</a>
+                <a href="About.html">About</a>
+            </div>
         </div>
                 
     </header>
@@ -91,6 +102,17 @@
 
         navJobStatPostcode(submitPostcode);
     }
+
+if(screen.width < 500)
+{
+var x = document.getElementById("NavBar");
+x.style.display = "none";
+}
+else
+{
+var y = document.getElementById("DropMenu")
+y.style.display = "none";
+}
 
 </script>
     

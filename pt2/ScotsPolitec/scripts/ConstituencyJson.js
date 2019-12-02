@@ -1,4 +1,5 @@
-//The unholy horror that is javascript scope and hoisting
+
+//Daniel Russell
 //external javascript for the purpose of retieving relevant constituency and MSP data
 
 //self invoking function, made to load all relevant data about a constituency and elect MSP
@@ -105,7 +106,7 @@ $(function()
             personRequest = personRequest.concat(personId.toString());
 
             //scoping issues from personId forced the nessesity for a nested Jquery request
-            //since personId is only visible and modifyable within this success function below can execute without error
+            //since personId is only visible and modifyable within this success function below
 
             //searches for person record from parlament.scot with matching personId
             //displays name and image
