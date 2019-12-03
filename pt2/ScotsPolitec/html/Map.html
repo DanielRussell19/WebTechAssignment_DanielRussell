@@ -57,7 +57,7 @@
         <p id="labelSelected"></p><br>
 
             <div id="ConListing">
-                <select id="conListing">
+                <select id="conListing" onchange="changePostcode()">
                         <option selected></option>
                 </select>
             </div><br>
@@ -97,6 +97,8 @@
     var y = document.getElementById("DropMenu")
     y.style.display = "none";
 }
+
+    
 </script>
     
 </html>

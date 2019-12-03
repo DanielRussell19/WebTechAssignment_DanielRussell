@@ -1,3 +1,4 @@
+var submitPostcode;
 
 function clearSelection(){
     var selectionbox = document.getElementById("conListing");
@@ -10,9 +11,10 @@ function clearSelection(){
     console.log("Cleared");
 }
 
-function navJobStat(){
+function changePostcode(){
 
-var submitPostcode = 0;
+var selectionbox = document.getElementById("conListing");
+var selectedCon = selectionbox.options[selectionbox.options.selectedIndex].text;
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: West Scotland")
 {
@@ -54,12 +56,19 @@ if(document.getElementById("labelSelected").innerHTML == "Select Region: North E
     submitPostcode = "8";
 }
 
-console.log(submitPostcode);
+if(selectedCon == "" || selectedCon == null){
+    submitPostcode = "";
+}
 
-var selectionbox = document.getElementById("conListing");
+console.log(selectedCon);
 
-if(selectionbox.innerHTML != ""){
-    navJobStatPostcode(submitPostcode);
+}
+
+function navJobStat(){
+
+if(submitPostcode != null && submitPostcode != ""){
+    console.log(submitPostcode);
+    //navJobStatPostcode(submitPostcode);
 }
 else{
     alert("Please select a consituency");
@@ -118,6 +127,10 @@ function initMap() {
 
         clearSelection();
 
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
+
         while(i != cons.length)
         {
             con = document.createElement("option");
@@ -139,6 +152,10 @@ function initMap() {
         var i = 0;
         //
         clearSelection();
+
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
 
         while(i != cons.length)
         {
@@ -162,6 +179,10 @@ function initMap() {
         //
         clearSelection();
 
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
+
         while(i != cons.length)
         {
             con = document.createElement("option");
@@ -183,6 +204,10 @@ function initMap() {
         var i = 0;
 
         clearSelection();
+
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
         
         while(i != cons.length)
         {
@@ -206,6 +231,10 @@ function initMap() {
 
         clearSelection();
 
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
+
         while(i != cons.length)
         {
             con = document.createElement("option");
@@ -227,6 +256,10 @@ function initMap() {
         var i = 0;
 
         clearSelection();
+
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
 
         while(i != cons.length)
         {
@@ -250,6 +283,10 @@ function initMap() {
 
         clearSelection();
 
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
+
         while(i != cons.length)
         {
             con = document.createElement("option");
@@ -271,6 +308,10 @@ function initMap() {
         var i = 0;
 
         clearSelection();
+
+        con = document.createElement("option");
+        con.text = "";
+        selectionbox.add(con);
         
         while(i != cons.length)
         {
