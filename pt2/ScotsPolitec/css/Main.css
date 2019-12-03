@@ -12,19 +12,16 @@ style{
 }
 
 #map {
-    float: left;
+    float: none;
     height: 500px;
-    width: 79%;
+    width: 100%;
 }
 
 #RegionMenu{
-    display: none;
-    float: right;
-
-    width: 20%;
-    height: 70px;
+    float: none;
+    width: 100%;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 5%; 
 }
 
 #RegionMenu a{
@@ -98,7 +95,7 @@ Header{
 Body{
     background-color: #ffffff;
     border: 2px solid #000000;
-    border-radius: 40%;
+    border-radius: 20%;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
 }
@@ -481,6 +478,9 @@ Footer{
     }
 
     #RegionMenu{
+        float: none;
+        width: 100%;
+        text-align: center;
         margin-top: 5%; 
     }
 
