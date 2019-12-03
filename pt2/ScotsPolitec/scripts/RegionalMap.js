@@ -11,6 +11,18 @@ function clearSelection(){
     console.log("Cleared");
 }
 
+//navigates to constituency, used by regionmap, utalizes a set postcode local to the consitituency
+function navConPostcode(){
+
+    if(submitPostcode != null && submitPostcode != ""){
+        window.location.href = "./Constituency.html?Postcode=" + submitPostcode;
+    }
+    else{
+        alert("Please select a consituency");
+    }
+    
+}
+
 function changePostcode(){
 
 var selectionbox = document.getElementById("conListing");
