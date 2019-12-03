@@ -18,42 +18,295 @@ var selectedCon = selectionbox.options[selectionbox.options.selectedIndex].text;
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: West Scotland")
 {
-    submitPostcode = "1";
+    switch (selectedCon)
+    {
+        case "Clydebank and Milngavie":
+            submitPostcode = "G816DL";
+            break;
+        case "Cunninghame North":
+            submitPostcode = "KA256ET";
+            break;
+        case "Cunninghame South":
+            submitPostcode = "KA120AA";
+            break;
+        case "Dumbarton":
+            submitPostcode = "G830DN";
+            break;
+        case "Eastwood":
+            submitPostcode = "G776AA";
+            break;
+        case "Greenock and Inverclyde":
+            submitPostcode = "PA168BQ";
+            break;
+        case "Paisley":
+            submitPostcode = "PA26AD";
+            break;
+        case "Renfrewshire North and West":
+            submitPostcode = "PA75HL";
+            break;
+        case "Renfrewshire South":
+            submitPostcode = "PA91BQ";
+            break;
+        case "Strathkelvin and Bearsden":
+            submitPostcode = "G644ES";
+            break;
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: Central Scotland")
 {
-    submitPostcode = "2";
+    switch (selectedCon)
+    {
+        case "Airdrie and Shotts":
+            submitPostcode = "ML74NB";
+            break;
+        case "Coatbridge and Chryston":
+            submitPostcode = "G698AJ";
+            break;
+        case "Cumbernauld and Kilsyth":
+            submitPostcode = "G680AR";
+            break;
+        case "East Kilbride":
+            submitPostcode = "G743XB";
+            break;
+        case "Falkirk East":
+            submitPostcode = "FK20JN";
+            break;
+        case "Falkirk West":
+            submitPostcode = "FK41ES";
+            break;
+        case "Hamilton":
+            submitPostcode = "ML37XY";
+            break;
+        case "Larkhall and Stonehouse":
+            submitPostcode = "ML37XY";
+            break;
+        case "Motherwell and Wishaw":
+            submitPostcode = "ML28HL";
+            break;
+        case "Uddingston and Bellshill":
+            submitPostcode = "ML42EB";
+            break;
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: Glasgow")
 {
-    submitPostcode = "G50ru";
+    switch (selectedCon)
+    {
+        case "Glasgow Anniesland":
+            submitPostcode = "G156TH";
+            break;
+        case "Glasgow Cathcart":
+            submitPostcode = "G429DZ";
+            break;
+        case "Glasgow Kelvin":
+            submitPostcode = "G36DR";
+            break;
+        case "Glasgow Maryhill and Springburn":
+            submitPostcode = "G209AX";
+            break;
+        case "Glasgow Pollok":
+            submitPostcode = "G522BW";
+            break;
+        case "Glasgow Provan":
+            submitPostcode = "G335LA";
+            break;
+        case "Glasgow Shettleston":
+            submitPostcode = "G320HZ";
+            break;
+        case "Glasgow Southside":
+            submitPostcode = "g50ru";
+            break;
+        case "Rutherglen":
+            submitPostcode = "G727PP";
+            break;
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: Highlands and Islands")
 {
-    submitPostcode = "4";
+    switch (selectedCon)
+    {
+        case "Argyll and Bute":
+            submitPostcode = "PA318NX";
+            break;
+        case "Caithness":
+            submitPostcode = "IV274BL";
+            break;
+        case "Sutherland and Ross":
+            submitPostcode = "IV274BL";
+            break;
+        case "Inverness and Nairn":
+            submitPostcode = "PH233BG";
+            break;
+        case "Moray":
+            submitPostcode = "AB389LB";
+            break;
+        case "Na h-Eileanan an Iar":
+            submitPostcode = "HS12TD";
+            break;
+        case "Orkney Islands":
+            submitPostcode = "KW172QH";
+            break;
+        case "Shetland Islands":
+            submitPostcode = "ZE29PX";
+            break;
+        case "Skye":
+            submitPostcode = "PH344EU";
+            break;
+        case "Lochaber and Badenoch":
+            submitPostcode = "PH344EU";
+            break;
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: Lothian")
 {
-    submitPostcode = "5";
+    switch (selectedCon)
+    {
+        case "Almond Valley":
+            submitPostcode = "EH558AZ";
+            break;
+        case "Edinburgh Central":
+            submitPostcode = "EH22AA";
+            break;
+        case "Edinburgh Eastern":
+            submitPostcode = "EH152QN";
+            break;
+        case "Edinburgh Northern and Leith":
+            submitPostcode = "EH64LP";
+            break;
+        case "Edinburgh Pentlands":
+            submitPostcode = "EH145AA";
+            break;
+        case "Edinburgh Southern":
+            submitPostcode = "EH104QE";
+            break;
+        case "Edinburgh Western":
+            submitPostcode = "EH309TU";
+            break;
+        case "Linlithgow":
+            submitPostcode = "EH481TP";
+            break;
+        case "Midlothian North and Musselburgh":
+            submitPostcode = "EH218SE";
+            break;
+    }   
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: South Scotland")
 {
-    submitPostcode = "6";
+    switch(selectedCon)
+    {
+        case "Ayr":
+            submitPostcode = "KA71DX";
+            break;
+        case "Carrick":
+            submitPostcode = "KA181LW";
+            break;
+        case "Cumnock and Doon Valley":
+            submitPostcode = "KA181LW";
+            break;
+        case "Clydesdale":
+            submitPostcode = "ML117PX";
+            break;
+        case "Dumfriesshire":
+            submitPostcode = "DG112SA";
+            break;
+        case "East Lothian":
+            submitPostcode = "EH403BB";
+            break;
+        case "Ettrick":
+            submitPostcode = "TD99QE";
+            break;
+        case "Roxburgh and Berwickshire":
+            submitPostcode = "TD99QE";
+            break;
+        case "Galloway and West Dumfries":
+            submitPostcode = "DG86HR";
+            break;
+        case "Kilmarnock and Irvine Valley":
+            submitPostcode = "KA36ED";
+            break;
+        case "Midlothian South":
+            submitPostcode = "EH458EP";
+            break;
+        case "Tweeddale and Lauderdale":
+            submitPostcode = "EH458EP";
+            break; 
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: Mid Scotland and Fife")
 {
-    submitPostcode = "7";
+    switch (selectedCon)
+    {
+        case "Clackmannanshire and Dunblane":
+            submitPostcode = "FK125JT"; 
+            break;
+        case "Cowdenbeath":
+            submitPostcode = "KY49SF"; 
+            break;
+        case "Dunfermline":
+            submitPostcode = "KY129GQ"; 
+            break;
+        case "Kirkcaldy":
+            submitPostcode = "KY25LF"; 
+            break;
+        case "Mid Fife and Glenrothes":
+            submitPostcode = "KY75QF"; 
+            break;
+        case "North East Fife":
+            submitPostcode = "KY155JU"; 
+            break;
+        case "Perthshire North":
+            submitPostcode = "FK83UG"; 
+            break;
+        case "Perthshire South and Kinross-shire":
+            submitPostcode = "PH31BJ"; 
+            break;
+        case "Stirling":
+            submitPostcode = "FK178EX"; 
+            break;   
+    }
 }
 
 if(document.getElementById("labelSelected").innerHTML == "Select Region: North East Scotland")
 {
-    submitPostcode = "8";
+    switch (selectedCon)
+    {
+        case "Aberdeen Central":
+            submitPostcode = "AB251XF"; 
+            break;
+        case "Aberdeen Donside":
+            submitPostcode = "AB210ER"; 
+            break;
+        case "Aberdeen South and North Kincardine":
+            submitPostcode = "AB124QA"; 
+            break;
+        case "Aberdeenshire East":
+            submitPostcode = "AB419AD"; 
+            break;
+        case "Aberdeenshire West":
+            submitPostcode = "AB338QB";    
+            break;
+        case "Angus North and Mearns":
+            submitPostcode = "AB31QN";
+            break;
+        case "Angus South":
+            submitPostcode = "DD76LE";    
+            break;
+        case "Banffshire and Buchan Coast":
+            submitPostcode = "AB423GT";
+            break;
+        case "Dundee City East":
+            submitPostcode = "DD13JN";
+            break;
+        case "Dundee City West":
+            submitPostcode = "DD13BA";
+            break; 
+    }
 }
 
 if(selectedCon == "" || selectedCon == null){
@@ -68,7 +321,7 @@ function navJobStat(){
 
 if(submitPostcode != null && submitPostcode != ""){
     console.log(submitPostcode);
-    //navJobStatPostcode(submitPostcode);
+    navJobStatPostcode(submitPostcode);
 }
 else{
     alert("Please select a consituency");
