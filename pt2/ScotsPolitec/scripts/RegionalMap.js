@@ -1,5 +1,10 @@
+//Daniel Russell
+// external javascript used to load maps api and handle regional map operations
+
+//global variable
 var submitPostcode;
 
+//clear function used to clear all constituencies loaded from selection box
 function clearSelection(){
     var selectionbox = document.getElementById("conListing");
 
@@ -23,6 +28,7 @@ function navConPostcode(){
     
 }
 
+//function envoked onchange of the selection box, set the global variable submitpostcode to a postcode related to said constituency
 function changePostcode(){
 
 var selectionbox = document.getElementById("conListing");
@@ -321,6 +327,7 @@ if(document.getElementById("labelSelected").innerHTML == "Select Region: North E
     }
 }
 
+//if null check
 if(selectedCon == "" || selectedCon == null){
     submitPostcode = "";
 }
@@ -329,6 +336,8 @@ console.log(selectedCon);
 
 }
 
+//function invoked by clicking job statistics, used to navigate to job statistics
+//requires a constituency to be selected, which set the submitpostcode from the above function changepostcode
 function navJobStat(){
 
 if(submitPostcode != null && submitPostcode != ""){
@@ -342,7 +351,11 @@ else{
 }
 
 //Google Maps API
+
+//global variables used for googlemaps
 var map;
+
+//additional variable used for region selection
 var selectRegion;
 var selectConstituancy;
     
@@ -358,6 +371,10 @@ function initMap() {
      zoomControl:false
     });
     
+
+    //cords for each region, should have used polygons instead but struggled with co-ordinates when drawing
+
+    //region markers, cords and object declarations
     var cordNES = new google.maps.LatLng(57.055355, -2.519492);
     var markerNES = new google.maps.Marker({position: cordNES});
 
@@ -382,6 +399,10 @@ function initMap() {
     var cordHLI = new google.maps.LatLng(57.093798, -4.741072);
     var markerHLI = new google.maps.Marker({position: cordHLI});
     
+    //event listener used to utalize Maps markers
+    //each event listener triggers on click with their assigned marker
+    //each have a hard coded set of constituencies which are added into the select tag
+
     markerNES.addListener('click',function(){
         document.getElementById("RegionMenu").style.display = "inline-block";
         document.getElementById("labelSelected").innerHTML = "Select Region: North East Scotland";
@@ -590,6 +611,7 @@ function initMap() {
         }
     });
 
+    //Maps function used to add each marker on map display
     markerNES.setMap(map);
     markerMSF.setMap(map);
     markerSS.setMap(map);
@@ -599,3 +621,7 @@ function initMap() {
     markerCS.setMap(map);
     markerWS.setMap(map);
 }
+
+    //Maps Api
+    //GoogleMaps JavaScript API
+    //https://developers.google.com/maps/documentation/javascript/tutorial

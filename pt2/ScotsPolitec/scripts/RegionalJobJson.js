@@ -22,6 +22,7 @@ $(function()
 
     var request = "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=" + submitPostcode;
     
+    //Ajax request used to retriev jobs assoiated with a postcode, adds each job to select tag
     $.ajax({
 
         url: request,
@@ -53,6 +54,9 @@ $(function()
 
 })
 
+//function invoked onchange, used to remove and display salary and rate of change for each job.
+//function getSoc used to handle the display of salary and rate of change
+//function loadgraph is invoked to update graph
 function updateValues()
 {
     var selectionbox = document.getElementById("dropboxJobs");
@@ -77,6 +81,7 @@ function updateValues()
     getSoc(selectName);
 }
 
+//Ajax request used to retrieve the four digit Soc number of selected job before invoking loadpay and loadchangepay
 function getSoc(jobName)
 {
     var request = "http://api.lmiforall.org.uk/api/v1/soc/search?q=" + jobName
@@ -107,6 +112,7 @@ function getSoc(jobName)
 
 }
 
+//used to handle the rendering of the graph
 function loadGraph(value,description){
 
     google.charts.load('current', {packages: ['corechart']});
@@ -121,14 +127,40 @@ function loadGraph(value,description){
         [description, (value/100)],
         ['Other', ((100-value)/100)],
       ]);
-        
-    var options = {
-        title: 'Number of workers in sector ' + description,
-        is3D: true,
-        width: 300,
-        height: 300,
-        colors: ['#006622', '#a3a3c2']
-    };
+    
+    //if conditions used to judge appropriate sizing for graph
+    if(screen.width < 500)
+    {
+        var options = {
+            title: 'Number of workers in sector ' + description,
+            is3D: true,
+            width: 300,
+            height: 300,
+            colors: ['#006622', '#a3a3c2']
+        };
+    }
+
+    if(screen.width < 800 && screen.width > 500)
+    {
+        var options = {
+            title: 'Number of workers in sector ' + description,
+            is3D: true,
+            width: 600,
+            height: 600,
+            colors: ['#006622', '#a3a3c2']
+        };
+    }
+
+    if(screen.width > 801)
+    {
+        var options = {
+            title: 'Number of workers in sector ' + description,
+            is3D: true,
+            width: 800,
+            height: 800,
+            colors: ['#006622', '#a3a3c2']
+        };
+    }
 
       // Instantiate and draw the chart.
       var chart = new google.visualization.PieChart(document.getElementById('PieChart3d'));
@@ -137,6 +169,7 @@ function loadGraph(value,description){
 
 }
 
+//Ajax request used to retrieve the pay for a requested job according to its Soc number
 function loadPay(soc){
     var request = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + soc;
 
@@ -175,6 +208,7 @@ function loadPay(soc){
     });
 }
 
+//Ajax request used to retrieve the rate of change in salary according to its Soc number
 function loadChangePay(soc){
     var request = "http://api.lmiforall.org.uk/api/v1/ashe/annualChanges?soc="+soc;
     
